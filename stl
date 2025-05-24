@@ -1,0 +1,151 @@
+.............................................................................    
+    ITERADORES
+
+    Iteradores são objetos que permitem percorrer elementos de um conteiner
+    (como std::vector, std::list, arrays, etc) de forma abastrata. Eles são um
+    parte fundamental da stl (Standard Template Library) e funcionam como
+    ponteiros generalizados. Existem diferentes categorias de iteradores, cada
+    uma com capacidades específicas:
+    
+    1.  Input Iterator: permite leitura de uma sequência (avança apenas para
+    frente).
+    2. Output Iterator: permite escrita em uma sequência (avança apenas para
+    frente).
+    3. Forward Iterator: permite leitura e escrita, avançando apenas para
+    frente, com suporte a múltiplas passagens.
+    4. Bidirecional  Iterator: Como Forward, mas também permite retroceder.
+    5. Random Access Iterator: Permite acesso aleatório aos elementos (como em
+    arrays ou std::vector).
+    6. Contigous Iterator (c++ 17): Garante que os elementos estão em memória
+    contígua.
+
+    BIBLIOTECAS RANGERS
+
+    A bibliotecas Rangers, introduzida em c++ 20, é uma evoluação dos iteradores
+    e algorithmos da STL. Ela permite manipular sequência de dados de forma mais
+    fluida, usando uma sintaxe mais moderna e expressiva. Rangers não substituem 
+    iteradores, mas os encapsulam em conceitos mais abstratos, como rangers
+    (intervalos de dados).
+
+    Um range é qualquer que represente uma sequência de elementos, como
+    contêniners (std::vector, std::array) ou até mesmo geradores de dados. A
+    bibioteca <ranges> fornece ferramentas para trabalhar com essas sequências
+    de maneira funcional, com opearações como filtragem, transformação e
+    projeção.
+
+
+    example: (this code works only cpp 20 for more)
+    #include <iostream>
+    #include <vector>
+    #include <ranges>
+
+    int main() {
+    std::vector<int> vec {1, 2, 3, 4, 5};
+
+    // Filtra números pares e os transforma multiplicando por 2
+    auto result = vec | std::ranges::views::filter([](int x) { return x % 2 == 0; })
+                     | std::ranges::views::transform([](int x) { return x * 2; });
+
+    for (int x: result)
+        std::cout << x << " "; // Saída: 4 8
+    }
+
+.............................................................................
+    STD::STRING
+
+    ELEMENTOS DE ACESSO
+    at, operator[], front, back, data, c_str, operator basic_string_viepow
+
+
+
+.............................................................................
+    STD::VECTOR
+
+    ELEMENTOS DE ACESSO
+    at, operator[], front, back, data
+
+    at              -> acessa um elemento especificado checando os limites de dados
+    operator[]      -> accesa um elemento espeficado
+    front           -> acessa o primeiro elemento
+    back            -> acessa o último elemento
+    data            -> acesso direto ao armazenamento contiguo subjacente
+
+    std::vector<int> v {2, 3, 5, 7};
+    v.at(2) = 77;
+    std::cout << v[2] << '\n'; //77
+    std::cout << v.front() << '\n'; //2
+    std::cout << v.back() << '\n'; //7
+
+    ITERADORES
+    begin, cbegin, end, cend, rbegin, crbegin, rend, crend
+
+    begin
+    
+    std::vector<int> v{2, 3, 5, 7};
+    std::vector<int>::iterator i = v.begin();
+    //or auto i = v.begin();
+    for (int j = 0; j < v.size(); ++j) {
+        std::cout << *i << ' ';
+        ++i;
+    } //2 3 5 7
+
+    end
+
+    std::vector<int>::iterator i = v.end();
+    //or auto i = v.end();
+    int j = 0;
+    while (j++ < v.size()) {
+        --i;
+        std::cout << *i << ' ';
+    } // 7 5 3 2
+
+    CAPACIDADE
+    empty, size, max_size, reserve, capacity, shrink_to_fit
+
+    empty       ->       verificar se o container is empty
+    size        ->       retorna o numero de elementos
+    max_size    ->       retorna o numero maximo possivel de elementos
+    reserve     ->       reserva de estoque
+    capacity    ->       retorna o número de elementos que podem ser mantidos no
+                           armazenamento alocado atualmente.
+    shrink_to_fit   ->  reduz o uso de memória liberando memória não utilizada
+    
+    MODIFICADORES
+    clear, insert, insert_range, emplace, erase, push_back, emplace_back, 
+    append_range, pop_back, resize, swap
+
+    clear           -> limpa o conteudo
+    insert          -> insere elementos
+    insert_range    -> insere um range de elemntos
+    pop_back        -> remove o ultimo elemnto
+    swap            -> troca o conteudo 
+    resize          -> muda o numero de elementos aramzenados
+    erase           -> apaga os elementos
+    append_back     -> adiciona um elemento no fim
+
+    Funções não-membros
+    operator==
+    operator!=
+    operator<
+    operator<=
+    operator>
+    operator>=
+    operator<=>
+
+    #include <vector>
+    #include <compare>
+    #include <iostream>
+
+    int main() {
+    std::vector<int> v1 = {1, 2, 3};
+    std::vector<int> v2 = {1, 2, 4};
+    std::vector<int> v3 = {1, 2};
+
+    auto cmp1 = (v1 <=> v2); // v1 < v2, pois 3 < 4
+    auto cmp2 = (v1 <=> v3); // v1 > v3, pois v3 é mais curto
+
+    std::cout << (cmp1 < 0 ? "v1 < v2" : "v1 >= v2") << '\n'; // Imprime: v1 < v2
+    std::cout << (cmp2 < 0 ? "v1 < v3" : "v1 >= v3") << '\n'; // Imprime: v1 >= v3
+    }
+
+.............................................................................
