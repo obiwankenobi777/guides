@@ -517,3 +517,74 @@
     da classe base (A), mesmo que você passasse um B ou C.
 
 .......................................................
+    FUNÇÕES LAMBDA
+
+    [capturas](parâmetros) especificadores -> tipo_retorno { corpo_funcao };
+
+    Captura([]) -> define quais variáveis de escopo a lambda pode acessar e
+    como(valor ou referência).
+    Parâmetros(()) -> lista de parâmetros, como em uma função normal. Pode ser
+    vazia. 
+    Especifadores -> opicional, como mutable (permite modficar variáveis
+    capturadas por valor).
+    Tipo de retorno(->) -> opcional, especifica o tipo retornado. Se omitido, é
+    inferido automaticamente.
+    Corpo da função({}) -> O código a ser executado.
+
+    auto sum = [](int a, int b) -> int { return a + b; };
+    std::cout << sum(1, 1001);
+
+    auto mul = [](int a, int b){ return a * b; };
+    std::cout << mul(23, 93) << '\n';
+
+    Capturas
+
+    As capturas determinam como variáveis externas são acessadas:
+
+    . []: sem captura, não acessa variáveis externas;
+    . [x]: captura o valor da variável x(cópia, imutável por padrão);
+    . [&x]: captura x por referência (modificações afetama variávelo original);
+    . [=]: captura todas as variáveis do escopo por valor;
+    . [&]: captura todas as variáveis do escopo por referência;
+    . [this]: captura o ponteiro this(usado em classes);
+
+    . Combinações: [x, &y] x por valor e y por referência
+
+    int x = 7;
+    auto lambda = [x]() { std::cout << x << '\n'; };
+    lambda();
+
+    Especificador mutavel
+    
+    int x = 10;
+    auto lambda = [x]() mutable { x++; return x; };
+    std::cout << lambda();
+    std::cout << x;
+
+    Uso com STL
+    
+    std::vector<int> v{11, 13, 17, 19};
+    std::sort(v.begin(), v.end(), [](int a, int b) { return a > b; });
+
+    Armazenametos e tipos
+    . Uma lambda é um objeto de um tipo anônimo gerado pelo compilador (um
+    closure).
+    . Pode ser armazenada em uma variável com auto ou em std::function para
+    maior flexibilidade
+
+    #include <functional>
+    std::function<int(int, int)> func = [](int a, int b) { return a + b; };
+
+    Quando usar lambdas
+    . Para funções curtas e locais, evitando a necessidade de declarar funções
+    nomeadas
+    . Em algoritmos STL ou APIs que aceitem funções como argumentos
+    . Para capturar contexto local de forma conveniente
+
+    std::vector<int> n {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::vector<int> evens;
+    std::copy_it(n.begin(), n.end(), std::back_inserter(evens), 
+        [](int n){ return n % 2 == 0; });
+
+
+.......................................................
