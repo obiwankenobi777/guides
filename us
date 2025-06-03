@@ -13,5 +13,7 @@
     frames      - quadros
     behavior    - comportamento
     erase       - apagar
+    tell        - contar
+    seek        - procurar
 
 .......................................................
