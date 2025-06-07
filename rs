@@ -1,4 +1,12 @@
 .............................................................................
+    VARIÁVEIS
+
+    Em rust há dois tipos de variáveis: mutáveis e imutáveis. Uma variável
+    imutável (definida pelos comando let mut) é aquela que possibilita alteração
+    de seu valor após a definição de um valor a ela quer poderá ser feita a
+    qualquer momento no programa a partir de um única entrada.
+
+.............................................................................
 
     fn main() {
         println!("=== REPRESENTAÇÃO DE VALORES ===");
