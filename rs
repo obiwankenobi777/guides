@@ -73,5 +73,80 @@
         println!("{} {}", a[0], a[1]);
     }
 
+    Arrays são úteis quando você deseja que seus dados sejam alocados na pilha,
+    assim como os outros tipos que vimos até agora, em vez do heap ou quando
+    você deseja garantir que sempre tenha um número fixo de elementos. Um array
+    não é flexível quanto o tipo vetor. Um vetor é um tipo de coleção semelhante
+    fornecido pela bibioteca padrão que pode aumentar ou diminuir de tamanho.
+
+    Você pode inicializar uma matriz para conter o mesmo valor para cada
+    elemento especificando o valor inicial, seguido por um ponto e vírgula e, em
+    seguida, o comprimento do array entre colchetes:
+
+    let a = [3; 5];
+
+
+.............................................................................
+    FUNÇÕES
+
+    Declarações e expressões
+
+    Corpos de funções são compostos por uma série de intruções que terminam
+    opcionalmente em uma expressão.
+
+        .Intruções são instruções que executam alguma ação e não retornam um
+        valor.
+        .Expressões são avaliadas como um valor resultante. //expressões não
+        incluem ponto e vírgula: ';'.
+
+    Instruções não retornam valores. Portanto, você não pode atribuir um let
+    instrução a outra variável, como o código a seguir tenta fazer; você
+    receberá um erro:
+
+        fn main() {
+            let x = (let y = 6);
+        }
+        
+    Ao executar o programa acima, o compilador enviará um erro. Pois let y = 6 é
+    uma instrução.
+
+    fn main() {
+        let y = {
+            let x = 3;
+            x + 1
+        };
+        println!("The value of y is: {y}"); //4
+    }
+
+    Esta expressão: 
+    {
+        let x = 3;
+        x + 1
+    }
+    é um bloco, neste caso, é avaliado como 4. Esse valor é vinculado a y como
+    parte da instrução let. Oberseve que a linha x + 1 não tem ponto e vírgula
+    no final, o que é diferente da maioria das linhas que você viu até agora.
+    Expressões não incluem ponto vírgula final. Se você adicionar um ponto e
+    vírgula ao final de uma expressão, você a transforma em uma instrução, e ela
+    não retornará um valor. Tenha isso em mente ao explorar os valores de
+    retorno de funções e expressões a seguir.
+
+    FUNÇÕES COM VALORES DE RETORNO
+    Funções podem retornar valores para o código que as chama. Não nomeamos os
+    valores de retorno, mas devemos declarar seu tipo após uma seta: '->'. Em
+    RUST, o valor de retorno da função é sinônimo do valor da expressão final no
+    bloco do corpo de uma função. Você pode retornar no início de uma função
+    usando a keyboard: return e especificando um valor, mas a maioria das
+    funções retorna a última expressão implicitamente. 
+
+    fn five() -> i32 {
+        //return 5; 
+        //tanto return 5 como 5 dá no mesmo resultado
+        5
+    }
+    fn main() {
+        let x = five():
+        println!("The value of x is: {x}");
+    }
 
 .............................................................................
