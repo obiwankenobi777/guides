@@ -87,7 +87,6 @@
 
     let a = [3; 5];
 
-
 .............................................................................
     FUNÇÕES
 
@@ -214,6 +213,39 @@
 .............................................................................
     TUPLES EM RUST
 
+    Uma tupla é uma maneira de agrupar uma série de valores com diversos tipos
+    um tipo composto. As tuplas têm um comprimento fixo: uma vez declaradas,
+    não podem aumentar ou diminuir de tamanho.
+
+    fn main() {
+        let tup: (i32, f64, u8) = (500, 6.4, 1);
+        let (x, y, z) = tup;
+        println!("The value of y is {y}");
+
+        //acessando os valores das tuplas
+        let five_hundred = x.0;
+        let six_pointer_four = x.1;
+        let one = x.2;
+    }
+
+.............................................................................
+    ARRAYS EM RUST
+
+    Outra maneira de criar uma coleção de múltiplos valores é com um array. Ao
+    contrário de uma tupla todos os elementos de um array devem ter o mesmo
+    tipo. Ao contrário de arrays em algumas outras linguagens, arrays em RUST
+    têm um comprimento fixo.
+    
+    fn main() {
+        let a = [1, 2, 3, 4, 5];
+        let b = [3; 5]; // [3, 3, 3, 3, 3, 3]
+
+        let arr: [i32; 5] = [1, 2, 3, 4, 5];
+
+        let first = arr[0];
+        let second = arr[1];
+    }
+
 .............................................................................
     STRUCTS EM RUST
 
@@ -280,6 +312,23 @@
     fn main() {
         let black = Color(0, 0, 0);
         let origin = Point(0, 0, 0);
+    }
+
+    //EXAMPLE
+
+    struct Rectangle {
+        width: u32,
+        height: u32,
+    }
+    fn area(rectangle: &Rectangle) -> u32 {
+        rectangle.widht * rectangle.height
+    }
+    fn main() {
+        let rect1 = Rectangle { width: 30, height: 50 };
+        println!(
+            "The area of the rectangle is {} square pixels.", 
+            area(&rect1)
+        );
     }
 
 .............................................................................
