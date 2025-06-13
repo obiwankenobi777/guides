@@ -212,6 +212,9 @@
     }
 
 .............................................................................
+    TUPLES EM RUST
+
+.............................................................................
     STRUCTS EM RUST
 
     struct User {
@@ -219,6 +222,64 @@
         username: String,
         email: String,
         sign_in_cout: u64,
+    }
+    fn main() {
+        ler mut user1 = User {
+            active: true,
+            username: String::from("useradm"),
+            email: String::from("user@email.com"),
+            sign_in_count: 1,
+        };
+        user1.eamail = String::from("user1@email.com");
+
+        //criando instancias de outras instancias com sintaxe de atualizacao de
+        //estrutura
+        let user2 = User {
+            active: user1.active,
+            username: user1.name,
+            email: String::from("user2@emai.com"),
+            sign_in_count: user1.sign_in_count
+        };
+
+        //usando a sintax de atualizacao de struct, podemos obter o mesmo efeito
+        //com menos codigo, com a sintaxe '..'.
+        let user2 = User {
+            email: String::from("user2@emai.com"),
+            ..user1
+        };
+    }
+    fn build_user(email: String, username: String) -> User {
+        User {
+            active: true,
+            username = username,
+            email = email,
+            sign_in_count: 1,
+        }
+    }
+
+    A função build_user pode ser construída usando a abreviação de campo:
+
+    fn build_user(email: String, username: String) -> User {
+        User {
+            active: true,
+            username,
+            email,
+            sign_in_count: 1, 
+        }
+    }
+
+    USANDO ESTRUTURAS DE TUPLA SEM CAMPOS NOMEADO PARA CRIAR TIPOS DIFERENTES
+
+    Estruturas de tuplas são úteis quando você deseja dar um nome à tupla
+    inteira e torná-la um tipo diferente das outras tuplas, e quando nomear cada
+    campo como em uma estrutura normal seria prolixo ou reduntante.
+
+    struct Color(i32, i32, i32);
+    struct Point(i32, i32, i32);
+
+    fn main() {
+        let black = Color(0, 0, 0);
+        let origin = Point(0, 0, 0);
     }
 
 .............................................................................
