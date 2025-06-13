@@ -1,4 +1,6 @@
 .............................................................................
+    THE RUST PROGRAMMING LANGUAGE
+.............................................................................
     VARIÁVEIS
 
     TIPOS ESCALARES
@@ -148,5 +150,84 @@
         let x = five():
         println!("The value of x is: {x}");
     }
+
+.............................................................................
+    FLUXO DE CONTROLE
+    fn main() {
+        let x = 3;
+        if x < 5 {
+            println!("condition was true");
+        }
+        esle {
+            println!("condition was false");
+        }
+    }
+    Vale ressaltar que condição neste código dever um bool. Se a condição não
+    for um bool, ocorrerá um erro.
+    fn main() {
+        let number = 3;
+        if number {
+            println!("This is a mistake");
+        }
+    }
+    O código acima está errado. Ao contrário de rust linguagens como ruby e
+    javascript, o RUST não tenta converter automaticamente tipos não booleanos
+    em um booleano. Você deve ser explícito e sempre fornecer if um booleano
+    como condição.
+
+    Lidando com múltiplas condições com if else
+
+    fn main() {
+        let number = 6;
+
+        if number % 4 == 0 {
+            println!("number is divisible by 4");
+        } else if number % 3 == 0 {
+            println!("number is divisible by 3");
+        } else if number % 2 == 0 {
+            println!("number is divisible by 2");
+        } else {
+            println!("number is not divisible by 4, 3, or 2");
+        }
+    }
+    
+    Usando if em uma let declaração.
+
+    fn main() {
+        let condition = true;
+        let number = if condition { 5 } else { 6 };
+
+        println!("The value of number is: {number}");
+    }
+
+    LOOPS
+    RUST possui três tipos de loops: loop, while e for. 
+
+    fn main() {
+        let mut i = 0;
+        loop {
+            println!("Again");
+            if i < 10 break;
+        }
+    }
+
+.............................................................................
+    STRUCTS EM RUST
+
+    struct User {
+        active: bool,
+        username: String,
+        email: String,
+        sign_in_cout: u64,
+    }
+
+.............................................................................
+    PROPRIEDADE
+
+    REGRAS DA PROPRIEDADE
+    .cada valor em RUST em um proprietário;
+    .só pode haver um proprietário por vez;
+    .quando o proprietário sai do escopo, o valor será descartado.
+
 
 .............................................................................
