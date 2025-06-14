@@ -199,6 +199,50 @@
         println!("The value of number is: {number}");
     }
 
+    match <variavel> {
+    1 => <operation 1>,
+    2 => <operation 2>,
+    _ => <operacao padrao>
+    }
+
+    match value {
+        1 | 3 | 5 | 7 | 9 => println!("Valor ímpar!"),
+        2 | 4 | 6 | 8 => println!("valor par"),
+        _ => println!("Valor invalido"),
+    }
+
+    match value {
+        1 .. 5 => println!("Menor ou igual a 5"),
+        6 .. 9 => println!("Maior que 5"),
+        _ => println!("Valor invalida"),
+    }
+
+    VALIDACAO DO FLUXO DE ENTRADA
+
+    print!("Value: ");
+    std::io::stdout().flush().expect("Output Error");
+    let mut value = String::new();
+    std::io::stdin().read_line(&mut value).expect("Input Error");
+
+    match value.trim().parse::<u128>() {
+        Ok(v) => println!("Valor informando: {}", v);
+        Err(..) => println!("Valor errado")
+    };
+
+    ou
+
+    value = match value.trim().parse::<u8>() {
+        Ok(value) => value,
+        Err(_) => 0
+    };
+
+    ou
+
+    let value: u8 = match value.trim().parse() {
+        Ok(value) => value,
+        Err(_) => 0
+    };
+
     LOOPS
     RUST possui três tipos de loops: loop, while e for. 
 
@@ -397,7 +441,6 @@
     fn main() {
         escreva!("i am a rustacean... BTW!");
     }
-
 
 .............................................................................
     PROPRIEDADE
