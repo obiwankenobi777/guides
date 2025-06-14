@@ -314,7 +314,7 @@
         let origin = Point(0, 0, 0);
     }
 
-    //EXAMPLE
+    //EXAMPLE 1
 
     struct Rectangle {
         width: u32,
@@ -331,6 +331,74 @@
         );
     }
 
+    //EXAMPLE 2
+
+    #[derive(Debug)]
+    struct Rectangle {
+        widht: u32,
+        height: u32,
+    }
+    impl Rectangle {
+        fn area(&self) -> u32 {
+            self.widht * self.height
+        }
+        //verifica se um retangulo cabe no outro
+        fn can_hold(&self, other: &Rectangle) -> bool {
+            self.widht > other.width && self.height > other.height
+        }
+    }
+    fn main() {
+        let rect1 = Rectangle {
+            widht: 30,
+            height: 50,
+        };
+        println!("rect1 is {rect1:?}");
+        println!(
+            "The area of rectangle is {} square pixels",
+            rect1.area()
+        );
+    }
+
+.............................................................................
+    MACROS
+
+    macro_rules! <nome> {
+        (padrao1) => (acao);
+        (padrao2) => (acao);
+        (padrao3) => (acao);
+        ...
+        (padraon) => (acao);
+    }
+
+    ou
+
+    macro_rules! <nome> {
+        (padrao1) => {
+            acao1;
+            acao2;
+            ...
+            acaon;
+        };
+        ...
+        (padraon) => {
+            acao1;
+            ...
+            acaon;
+        };
+    }
+
+    EXEMPLO 1:
+
+    macro_rules! escreva {
+        ($esc:expr) => (print!(concat!($esc, "\n")));
+        ($esc:expr, $($param:tt)*) => (print!(concat!($esc, "\n"), 
+        $($param)*));
+    }
+    fn main() {
+        escreva!("i am a rustacean... BTW!");
+    }
+
+
 .............................................................................
     PROPRIEDADE
 
@@ -339,5 +407,3 @@
     .só pode haver um proprietário por vez;
     .quando o proprietário sai do escopo, o valor será descartado.
 
-
-.............................................................................
