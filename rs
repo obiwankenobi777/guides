@@ -247,6 +247,13 @@
     LOOPS
     RUST possui três tipos de loops: loop, while e for. 
 
+    while condition {
+        ...
+    }
+    for <var> in <start> .. <end> {
+        ...
+    }
+    
     loop {
     <instrução 1 enquanto condição for válida>;
     <instrução 2 enquanto condição for válida>;
