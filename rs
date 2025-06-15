@@ -243,8 +243,17 @@
         Err(_) => 0
     };
 
+.............................................................................
     LOOPS
     RUST possui três tipos de loops: loop, while e for. 
+
+    loop {
+    <instrução 1 enquanto condição for válida>;
+    <instrução 2 enquanto condição for válida>;
+    <instrução 3 enquanto condição for válida>;
+    <instrução N enquanto condição for válida>;
+    if [!(]<condição<[)] { break; }
+    }
 
     fn main() {
         let mut i = 0;
@@ -289,6 +298,11 @@
         let first = arr[0];
         let second = arr[1];
     }
+
+    let a = [0; 8];
+    let mut a = [0.; 10];
+    let a: [f64; 3] = [0.; 3];
+    let mut a: [i32; 5];
 
 .............................................................................
     STRUCTS EM RUST
