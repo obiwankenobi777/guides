@@ -594,7 +594,7 @@ let mut a: [f32; 5] = [0.; 5];
             func(&mut f);
         }
     
-    Funcao apontada
+    FUNCAO APONTADA
     Há duas formas de uso de funções apontadas: com inferência e sem inferência.
 
         fn foo(n: u8) -> u8 {
@@ -611,7 +611,6 @@ let mut a: [f32; 5] = [0.; 5];
         }
 
     FUNCAO COMO PARAMETRO
-
     fn fact(n: u64) -> u64 {
         if n == 0 || n == 1 {
             1
@@ -627,7 +626,21 @@ let mut a: [f32; 5] = [0.; 5];
         escreva(7, fact);
     }
 
+    SUB-ROTINA FECHADA
 
+    Um sub-rotina fechada não pode ser declarada fora de outra sub-rotina,
+    apenas dentro de outras sub-rotinas. Sendo assim, para ser usadaa dentro de
+    programas simples, devem ser declaradas dentro da função main().
+    Umas das formas de declaração de uma ação de sub-rotina fechada ocorre a
+    partir da sintaxe:
+
+    let <nome> = |<parametro>: [<tipo>]| {[return] <acao sobre o parametro>[;]};
+
+    fn main() {
+        let next = |x: i64| { x + 1; };
+        ou 
+        let next = |x: i64| x + 1;
+    }
 
 .............................................................................
     ESTRUTURAS HETEROGÊNAS
