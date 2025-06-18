@@ -471,3 +471,164 @@
     .só pode haver um proprietário por vez;
     .quando o proprietário sai do escopo, o valor será descartado.
 
+match <variavel> {
+    1 => <operation 1>,
+    2 => <operation 2>,
+    _ => <operacao padrao>
+}
+
+match value {
+    1 | 3 | 5 | 7 | 9 => println!("Valor ímpar!"),
+    2 | 4 | 6 | 8 => println!("valor par"),
+    _ => println!("Valor invalido"),
+}
+
+match value {
+    1 .. 5 => println!("Menor ou igual a 5"),
+    6 .. 9 => println!("Maior que 5"),
+    _ => println!("Valor invalida"),
+}
+
+VALIDACAO DO FLUXO DE ENTRADA
+
+print!("Value: ");
+std::io::stdout().flush().expect("Output Error");
+let mut value = String::new();
+std::io::stdin().read_line(&mut value).expect("Input Error");
+
+match value.trim().parse::<u128>() {
+    Ok(v) => println!("Valor informando: {}", v);
+    Err(..) => println!("Valor errado")
+};
+
+ou
+
+value = match value.trim().parse::<u8>() {
+    Ok(value) => value,
+    Err(_) => 0
+};
+
+ou
+
+let value: u8 = match value.trim().parse() {
+    Ok(value) => value,
+    Err(_) => 0
+};
+
+.............................................................................
+
+let a = [0; 8];
+let mut a = [0.; 10];
+let a: [f64; 3] = [0.; 3];
+let mut a: [i32; 5];
+
+let mut a: [f32; 5] = [0.; 5];
+
+.............................................................................
+    VETORES DINÂMICOS EM RUST
+
+    A macro vec!() é um recurso que permite definir uma estrutura de memória 
+    dinâmica para o gerenciamento de uma lista de valores na forma de matriz.
+
+    Matriz dinâmica bidimensional em RUST
+
+    fn main() {
+        let lines: usize;
+        let columns: usize;
+
+        println!("Matriz dinâmica bidimensional\n");
+
+        print!("Entre com a quantidade de linhas: ");
+        std::io::stdout().flush().unwrap();
+
+        let mut lin = String::new();
+        std::io::stdin().read_line(&mut lin).unwrap();
+        lines = lin.trim().parse::<usize>().unwrap();
+
+        print!("Entre com a quantidade de colunas: ");
+        std::io::stdout().flush().unwrap();
+
+        let mut col = String::new();
+        std::io::stdin().read_line(&mut col).unwrap();
+        columns = col.trim().parse::<usize>().unwrap();
+
+        //alocar a matriz bidimensional dinamica
+        let mut arr = vec![vec![0; lines]; columns];
+
+        let mut value = String::new();
+        for i in 0 .. lines {
+            for j in 0 .. columns {
+                print!("Info position [{}, {}]: ", j + 1, i + 1);
+                std::io::stdout().flush().unwrap();
+                std::io::stdin().read_line(&mut value).unwrap();
+                arr[i][j] = value.trim().parse::<i32>().unwrap();
+                value.clear();
+            }
+        }
+    }
+
+.............................................................................
+    FATIAMENTO DA MATRIZ
+
+    A slice é um maneira segura de obter uma parte de uma matriz, sendo
+    aplicável apenas sobre uma matriz previamente definida. Esse recurso pode
+    operar com o formato mutável ou não mutável, comportando-se como se fosse um
+    array.
+
+    let valores = [1, 2, 3, 4, 5, 6];
+    let parte  = &valores[1..4]; //2, 3, 4
+    let total = &valores[..]; 
+    let total1 = &valores[0 .. valores.len()];
+
+.............................................................................
+    PASSAGEM POR REFERENCIA
+
+    A referência de um parametro é definida a partir do uso do qualificador
+    &mut após o nome de uma parâmetro: (f: &mut u8).
+
+        fn func(f: &mut u8) {
+            ...
+        }
+        fn main() {
+            let mut f: u8;
+            func(&mut f);
+        }
+    
+    Funcao apontada
+    Há duas formas de uso de funções apontadas: com inferência e sem inferência.
+
+        fn foo(n: u8) -> u8 {
+            if n == 0 {
+                0
+            }
+            else {
+                1
+            }
+        }
+        fn main() {
+            let f = foo;
+            println!("{} && {}", f(0), f(101)); //0 && 1
+        }
+
+    FUNCAO COMO PARAMETRO
+
+    fn fact(n: u64) -> u64 {
+        if n == 0 || n == 1 {
+            1
+        }
+        else {
+            n * fact(n - 1)
+        }
+    }
+    fn escreva(u: u64, func: fn(u64)->u64) {
+        println!("Resultado: {}", func(v));
+    }
+    fn main() {
+        escreva(7, fact);
+    }
+
+
+
+.............................................................................
+    ESTRUTURAS HETEROGÊNAS
+.............................................................................
