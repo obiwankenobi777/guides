@@ -637,7 +637,7 @@ let mut a: [f32; 5] = [0.; 5];
     let <nome> = |<parametro>: [<tipo>]| {[return] <acao sobre o parametro>[;]};
 
     fn main() {
-        let next = |x: i64| { x + 1; };
+        let next = |x: i64| { x + 1 };
         ou 
         let next = |x: i64| x + 1;
     }
