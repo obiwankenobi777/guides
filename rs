@@ -636,12 +636,40 @@ let mut a: [f32; 5] = [0.; 5];
 
     let <nome> = |<parametro>: [<tipo>]| {[return] <acao sobre o parametro>[;]};
 
+    let <nome> = |<parametro>: [<tipo]| -> <tipo> {<acao sobre o parametro>[;]};
+
     fn main() {
         let next = |x: i64| { x + 1 };
         ou 
         let next = |x: i64| x + 1;
+        ou
+        let next = |x: i64| -> i64 { x + 1 };
     }
 
+    fn main() {
+        let fact = |n| {
+            let mut f: u64 = 1;
+            let limite: u64 = n;
+            for i in 1 .. limite + 1 {
+                f += i;
+            }
+            f
+        }
+    }
+
+    fn main() {
+        let compare = |v1: i8, v2: i8| -> bool {
+            if v1 == v2 {
+                true
+            }
+            else {
+                false
+            }
+        };
+        ...
+        println!("Compare({}, {}): {:?}", v1, v2, compare(v1, v2));
+    }
+
+
 .............................................................................
-    ESTRUTURAS HETEROGÊNAS
 .............................................................................
