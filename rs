@@ -670,6 +670,59 @@ let mut a: [f32; 5] = [0.; 5];
         println!("Compare({}, {}): {:?}", v1, v2, compare(v1, v2));
     }
 
+.............................................................................
+    POINTEIROS
+
+    Ponteiro é uma maneira de se fazer referência a determinado endereço de
+    memória por meio de uma variável definida para esta finalidade.
+    A linguagem RUST utiliza os tipos de ponteiro: refence pointers (ponteiro de
+    referência), boxes pointers (ponteiros de caixa, também conhecidos com
+    ponteiros exclusivos) e raw pointers (ponteiros brutos, também conhecidos
+    como ponteiros inseguros).
+
+    Uma referência é uma maneira de apontar para qualquer valor em qualquer
+    lugar da memória por meio dos operadores (&) e comercial e (*) asterisco.
+    Enquanto o operador & estabelece o acesso ao conteúdo do endereço apontado,
+    o operador * faz com que seja possível manipular o conteúdo do endereço
+    refernciado por &.
+
+    Os ponteiros tipo boxes pointers obtidos a partir do uso do recurso
+    Box::new() são a forma mais simples e segura de fazer uso do ponteiros na
+    linguagem RUST. Este ponteiro quando em uso, aloca espaço de memória
+    suficiente para seu uso e libera o espaço reservado de memória quando o
+    ponteiro deixa de ser usado.
+
+    Já os ponteiros tipo raw pointers são ponteiros brutos que não garantem que
+    seu apontamento seja feito para um endereço válido de memória. O uso desse
+    recurso obriga o programador a retirar a referência da memória, uma vez que
+    ação não é realizada de forma automática pela linguagem.
+
+    PONTEIRO DE REFERÊNCIA
+
+    A destruturação de um ponterio é estabelecida com o uso do & (e comercial),
+    de ref e ref mut, enquanto a dereferência é estabelecida com o uso do *
+    (asterisco).
+
+    fn main() {
+        let i: &u8 = 7; // let i = &7u8;
+        pritln!("{}, {}, {}", &i, i, *i);
+
+        let ref j = 7u8; //let ref j: u8 = 7;
+    }
+
+    PONTEIRO EXCLUSIVO
+
+    Para fazer uso de ponteiro exclusivo é necessário solicitar, por meio do
+    programa, a alocação no heap de memoria e inicializar o espaço alocado como
+    determinado valor. A alocação de memória é realizada pelo recurso
+    Box::new(valor) associado a uma variável ponteiro.
+
+    fn main() {
+        let p = Box::new(10);
+        println!("Ponteiro [pa] = {}", *pa);
+        println!("Ponteiro [pa] = {:p}", pa);
+    }
+
 
 .............................................................................
-.............................................................................
+
