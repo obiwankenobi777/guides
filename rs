@@ -696,6 +696,25 @@ let mut a: [f32; 5] = [0.; 5];
     seu apontamento seja feito para um endereço válido de memória. O uso desse
     recurso obriga o programador a retirar a referência da memória, uma vez que
     ação não é realizada de forma automática pela linguagem.
+    
+    let x = 10;
+    let r = &x:
+    println!("{}", r);  //10
+
+    let mut x = 10;
+    let r = &mut x;
+    *r += 1;
+    println!("{}", r);  //11
+
+    let b = Box::new(5);
+    println!("{}", *b); //5
+
+    let x = 42;
+    let p: *const i32 = &x;
+     
+    unsafe {
+        println!("{}", *p);
+    }
 
     PONTEIRO DE REFERÊNCIA
 
@@ -723,6 +742,37 @@ let mut a: [f32; 5] = [0.; 5];
         println!("Ponteiro [pa] = {:p}", pa);
     }
 
+.............................................................................
+    ENUMS
+
+    enum [<name>] {
+        <element1> [=valor],
+        <element2> [=valor],
+        <element3> [=valor],
+        ...
+        <element n> [=valor],
+    }
 
 .............................................................................
+    TIPOS GENERICOS
 
+    fn swap<T>(a: &mut T, b: &mut T) {
+        unsafe {
+            let mut x: T: unintialized();
+            ptr::copy_nonoverlapping(&*a, &mut x, 1);
+            ptr::copy_nonoverlapping(&*b, a, 1);
+            ptr::copy_nonoverlapping(&x, b, 1);
+            forget(x);
+        }
+    }
+    fn main() {
+        let mut valor_a = 1;
+        let mut valor_b = 2;
+        println!("a: {}, b: {}", a, b);
+
+        let mut valor_a = 'a';
+        let mut valor_b = 'b';
+        println!("a: {}, b: {}", a, b);
+    }
+
+.............................................................................
