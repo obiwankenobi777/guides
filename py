@@ -1,4 +1,38 @@
 .............................................................................
+    LIST, SET E DICT COMPREHENSIONS
+
+    LIST COMPREHENSION
+    [expr for val in collection if condition]
+
+    example:
+    strings = ['a', 'as', 'bat', 'car', 'dove', 'python']
+    l = [x.upper() for x in strings if len(x) > 2]
+    print(l) #['BAT', 'CAR', 'DOVE', 'PYTHON']
+
+    DICT COMPREHENSION
+    dict_comp = {expr-chave : expr-valor for value in collection if condition}
+
+
+    SET COMPREHENSION
+    set_comp = {expr for value in collection if condition}
+
+    set_comp = {len(x) for x in strings}
+
+    loc_mapping = {val : index for index, val in enumerate(strings)}
+
+    Isso, acima, poderia ser expressa de modo funcional usando a função:
+    set(map(len, strings))
+
+.............................................................................
+    EXPRESSOA TERNARIA
+
+    value = true_expr if condition else false-expr
+    
+    x = 5
+    'Non-negative' if x >= 0 else 'Negative'
+    'Non-negative'
+
+.............................................................................
     MAP 
     map(function, iterable)
 

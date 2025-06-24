@@ -755,7 +755,6 @@ let mut a: [f32; 5] = [0.; 5];
 
 .............................................................................
     TIPOS GENERICOS
-
     fn swap<T>(a: &mut T, b: &mut T) {
         unsafe {
             let mut x: T: unintialized();
