@@ -289,6 +289,13 @@
     }
 
 .............................................................................
+    COLLECTIONS
+
+    Criando um novo vetor
+    let v: Vec<i32> = Vec::new();
+    
+
+
     ARRAYS EM RUST
 
     Outra maneira de criar uma coleção de múltiplos valores é com um array. Ao
@@ -424,6 +431,22 @@
         );
     }
 
+.............................................................................
+   ENUM
+
+    Enquanto structs oferecem uma maneira de agrupar campos e dados relacionados,
+    como um Rectangle com seus width e height, enums oferecem uma maneira de dizer
+    que um valor é um conjunto de possível de valores. Por exemplo, podemos querer
+    dizer que Rectangle é um de um conjunto de formas possíveis que também inclui
+    Circle e Triangle. Para fazer isso, Rust nos permite codificar essas
+    possibilidades como um enum.
+
+    enum IpAddrKind {
+        V4, V6
+    }
+    Agora IpAddrKind é um tipo de dado personalizado que podemos usar em outro lugar
+    em  nosso código.
+  
 .............................................................................
     MACROS
 
@@ -740,17 +763,6 @@ let mut a: [f32; 5] = [0.; 5];
         let p = Box::new(10);
         println!("Ponteiro [pa] = {}", *pa);
         println!("Ponteiro [pa] = {:p}", pa);
-    }
-
-.............................................................................
-    ENUMS
-
-    enum [<name>] {
-        <element1> [=valor],
-        <element2> [=valor],
-        <element3> [=valor],
-        ...
-        <element n> [=valor],
     }
 
 .............................................................................
