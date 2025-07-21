@@ -3,14 +3,16 @@
 	Iteração com o laço for .. of e for .. in
 
 	let numbers = [2,3,5,7,11]
-	for (const i in numbers) { console.log(numbers[i])}
+
+	for (const i in numbers) {
+	console.log(numbers[i]);
+	}
 	//2,3,5,7,11
 	
 	for (const n of numbers) {
 		console.log(n);
 	}
 	//2,3,5,7,11
-
 	
 	concat - junta vários arrays e devolve um cópia dos arrays concatenados
 
@@ -22,6 +24,7 @@
 	//arr3: [4,5,6,1,2,3] 
 
 	ou
+
 	const zero = 0
 	const positive = [1,2,3]
 	const negative = [-1,-2,-3]
@@ -49,11 +52,15 @@
 
 	let arr = [-3,-,2,-2, -1, 0, 1 2, 3];
 	let positive = arr.filter((x) => x > 0);
+
 	ou
+
 	let positive = arr.filter((x) => { return x > 0; });
 	//positive: [1,2,3];
 	let negative = arr.filter((x) => x < 0);
+
 	ou
+
 	let negative = arr.filter((x) => { return x < 0; });
 	//negative: [-3,-2,-1]
 	const nulo = arr.filter((x) => x == 0);
@@ -93,6 +100,18 @@
 	const arr = numbers.map((elem) => { return Math.pow(elem, 2); });
 	//arr: 4, 9, 25, 49
 
+	find - encontra o primeiro elemento em um array que satisfaz uma condição específica,
+	definida por uma função de teste (callback). Ele retorna o valor do primeiro elemento
+	que passa no teste.
+
+	const arr = [3,5,7,9,12,15];
+	const even = arr.find(number => number % 2 === 0);
+	console.log(even)
+	//12
+
+	findIndex - é usado para encontrar índice do primeiro elemento em um array
+	que satisfa uma condição específica.
+	
 	reverse - inverte o array
 	arr.reverse()
 
