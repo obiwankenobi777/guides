@@ -1,3 +1,4 @@
+-------------------------------------------------
 	STRINGS
 
 	includes - retornará um booleano informando se a string de pesquise
@@ -45,7 +46,8 @@
 		return g1.toUpperCase() + g2.toLowerCase();
 	});
 	console.log(str);
-
+	
+-------------------------------------------------
 	ARRAYS 
 
 	Iteração com o laço for .. of e for .. in
