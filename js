@@ -1,3 +1,51 @@
+	STRINGS
+
+	includes - retornará um booleano informando se a string de pesquise
+	existe na string.
+
+	let str = "hello, world";
+	str.includes("hello") // true
+	str.include("foo")    // false
+
+	indexOf - retorna o indice da primeira ocorrencia da string pesquisada na
+	string
+
+	let str = "hello, world";
+	str.indexOf("o") //4
+	str.indexOf("foo") //-1
+
+	lastIndexOf - retorna a ultima ocorrencia da string pesquisada
+
+	str.lastIndexOf("o") //8
+	str.lastIndexOf('foo') //-1
+	
+	replace - replace(regexp | substring, replacement | replaceFunction)
+	retornará uma string que contém todas as ocorrências de subtrings que
+	corresponde `a regex
+
+	let str = "Hello, World";
+	str = str.replace("hello", "bye");
+	console.log(str);
+	//bye World
+
+	str = str.replace(/W.{3}d/g, "Universe");
+	console.log(str)
+	//"Hello, Universe"
+	
+	let str = "heLlo woRld!";
+	str = str.replace(/([a-zA-Z])([a-zA-Z]+)/g, function(match, g1, g2) {
+		return g1.toUpperCase() + g2.toLowerCase();
+	});
+	console.log(str);
+
+	ou
+
+	let str = "heLlo woRld!";
+	str = str.replace(/([a-zA-Z])([a-zA-Z]+)/g, (match, g1, g2) => {
+		return g1.toUpperCase() + g2.toLowerCase();
+	});
+	console.log(str);
+
 	ARRAYS 
 
 	Iteração com o laço for .. of e for .. in
