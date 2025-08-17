@@ -178,6 +178,16 @@
 	valueOf - é semelhante ao método toString e devolve o array na forma de
 	uma string.
 
+	reduce - reduz um array a único valor, aplicando uma função acumuladora para
+	cada elemento de esquerda para a direita.
+
+	let number = []
+	for (let i = 0; i < 5; ++i) {
+		number.push(i+1);
+	}
+	const soma = number.reduce((x, y) => x + y)
+	//soma: 15
+	
 	pop - remove ultimo
 	shift - remove primeiro
 	push - adiciona no fim do array
