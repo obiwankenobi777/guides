@@ -117,7 +117,6 @@ case "word" in
 		;;
 esac
 ---------------------------------
-
 list=(arch lfs gentoo freebsd)
 
 for i in "{list[*]}"; do echo "$i"; done
@@ -136,6 +135,22 @@ debian
 lfs
 gentoo
 
+O comando abaixo printa no terminal o tamanho de list
+echo "${#list[@]}"
+list[@] -> representa todos os elementos de list
+# antes de list[@] -> informa o número de elementos de list
+
+Este comando informa o tamanho do primeiro elementod de list
+echo "${#echo[0]}"
+
+main() {
+	arr=(arch gentoo freebsd openbsd lfs);
+	i=0
+	while (( i < ${#arr[@]} )); do
+	echo "${arr[i]} -> ${#arr[i]}"
+	((i++))
+	done
+}
 .......................................................
 
 COLORS (FOREGROUND)
