@@ -102,17 +102,32 @@ until [[ $count -gt 10 ]]; do
     echo -n "$count, "
 done
 ---------------------------------
+case "word" in
+	pattern1)
+		todo1
+		;;
+	pattern2)
+		todo2
+		;;
+	pattern3|pattern4)
+		todo3,4
+		;;
+	*)
+		todo
+		;;
+esac
+---------------------------------
 
-list=(arch debia lfs gentoo)
+list=(arch lfs gentoo freebsd)
 
 for i in "{list[*]}"; do echo "$i"; done
->> arch debian lfs gentoo
+>> arch lfs gentoo freebsd
 
 for i in "${list[@]}"; do echo "$i"; done
 >> arch
-debian
 lfs 
 gentoo
+freebsd
 
 for i in ${list[*]}; do echo "$i"; done ==
 for i in ${list[@]}; do echo "$i"; done
