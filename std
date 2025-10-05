@@ -1,0 +1,27 @@
+struct String
+Methods from Deref<Target=str>
+
+chars() -> retorna o um iterador de cada caractere
+split_whitespace() -> retorna um iterador sobre palavras
+split("something") -> voce pode definir o separador manualmente
+find() -> retorna o indice do byte do primeiro caractere da string que
+corresponde ao padrao
+
+let name = String::from("The Rust Language Programming");
+
+assert_eq!(name.find('T'), Some(0));
+
+for (i, c) in name.chars().enumerate() {
+	if == space {
+		break;
+	}
+	print!("{}", c);
+}
+
+for (count, word) in name.split_whitespace().enumerate() {
+	println!("[{}]: {} -> {}", count, word, word.len());
+}
+
+O metodo collect() é usado para consumir um iterador e transforma-lo em
+uma colecao concreta (como Vec, HashMap, HashSet, etc)
+

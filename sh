@@ -63,6 +63,13 @@ EXIT STATUS OPERATOR
 errors
 [[ $? -gt 0 ]] -> return true if the command was not successful or had errors
 
+COMMAND LINE PARAMATERS
+$@ -> all arguments
+$# -> number of parameters passed on the command line
+${@:2} -> from second to last
+${@:3} -> from the third to last
+${@:2:$(($#-2))} -> from second to last
+
 COMMAND -> DECLARE
 declare [options] name=value
 
