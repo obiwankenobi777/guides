@@ -74,3 +74,23 @@ guu -> converte a linha toda para minuscula
 gUiw -> converte a palavra atual para maiuscula
 ~   -> altera o case do caractere atual 
 
+USANDO EXPRESSÕES REGULARES EM BUSCAS
+
+/ -> inicia uma busca
+/\%x69 -> localiza a letra 'i'
+/\d -> localiza números
+/[3-8] -> localiza números entre 3 e 8
+
+OBTENDO INFORMAÇÕES DO ARQUIVO
+
+ga -> mostra código do caractere em decimal hexa e octal
+ctrl-g -> mostra o caminho e o nome do arquivo
+g-ctrl-g -> mostra estatísticas detalhadas do arquivo
+
+FILE EXPLORER
+
+:Ve -> abre o file explore verticalmente
+:Sex -> abre o file explore em uma nova janela
+:Tex -> abre o file explore em um nova aba
+
+
