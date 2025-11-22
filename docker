@@ -1,0 +1,77 @@
+# Guia Completo de Uso e Remoção do Docker (Arch Linux)
+
+#---------------------------------------
+# INSTALAÇÃO DO DOCKER
+#---------------------------------------
+sudo pacman -Syu
+sudo pacman -S docker
+
+#---------------------------------------
+# HABILITAR E INICIAR O SERVIÇO
+#---------------------------------------
+
+sudo systemctl status docker      # verifica status
+sudo systemctl enable docker      # habilita na inicialização
+sudo systemctl start docker       # inicia o serviço
+
+---------------------------------------
+# USAR DOCKER SEM SUDO
+#---------------------------------------
+
+sudo usermod -aG docker $USER
+
+# depois:
+reboot
+# ou
+newgrp docker
+
+#---------------------------------------
+# COMANDOS BÁSICOS
+#---------------------------------------
+
+docker ps                # ver containers rodando
+docker images            # ver imagens
+docker pull ubuntu       # baixar imagem
+
+# rodar um container Ubuntu interativo
+docker run -it ubuntu bash
+
+#---------------------------------------
+# PARAR O SERVIÇO DO DOCKER
+#---------------------------------------
+
+sudo systemctl stop docker.service
+sudo systemctl stop docker.socket
+
+#---------------------------------------
+# DESABILITAR O SERVIÇO DO DOCKER
+#---------------------------------------
+
+sudo systemctl disable docker.service
+sudo systemctl disable docker.socket
+
+#---------------------------------------
+# DESINSTALAR DOCKER DO SISTEMA
+#---------------------------------------
+
+sudo pacman -Rs docker
+
+Se você instalou extras (como docker-compose):
+
+sudo pacman -Rs docker docker-compose docker-buildx
+
+#---------------------------------------
+# REMOVER ARQUIVOS RESTANTES
+#---------------------------------------
+
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+
+#---------------------------------------
+# CHECAR SE SAIU TUDO
+#---------------------------------------
+
+docker --version
+systemctl status docker
+
+
