@@ -91,6 +91,11 @@ for key "${!arr[@]}"; do
     echo "$key: ${arr[$key]}"
 done
 
+Percorrer os valores
+for value in "${arr[@]}"; do
+    echo "$value"
+done
+
 declare -p arr
 
 echo "${arr["name"]}"
