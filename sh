@@ -96,6 +96,14 @@ for value in "${arr[@]}"; do
     echo "$value"
 done
 
+#Arrays associativos não tem ordem garantida
+#Se precisar de ordem, você mesmo deve ordenar as chaves
+
+for k in $(printf "%s\n" "${!arr[@]}" | sort); do
+    echo "$k = ${arr[$k]}"
+done
+
+
 declare -p arr
 
 echo "${arr["name"]}"
