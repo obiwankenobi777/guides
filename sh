@@ -103,7 +103,6 @@ for k in $(printf "%s\n" "${!arr[@]}" | sort); do
     echo "$k = ${arr[$k]}"
 done
 
-
 declare -p arr
 
 echo "${arr["name"]}"
@@ -171,6 +170,12 @@ main() {
 	((i++))
 	done
 }
+
+# este comando ecoa no terminal todos os arquivos e diretórios contidos em $PWD
+for item in *; do
+    echo "$item"
+done
+
 .......................................................
 
 COLORS (FOREGROUND)
@@ -208,6 +213,38 @@ echo -e "\033[1;34mTexto azul em negrito\033[0m"
 echo -e "\033[42;30mTexto preto com fundo verde\033[0m"
 
 \033[<estilo>;<cor>mTexto\033[0m
+
+.......................................................
+COMANDOS DE MOVIMENTAÇÃO DO CURSOR
+
+Estes comandos funcionam com o echo -e
+exemplo: echo -e '\033[4;7H.' -> pula para linha 4 coluna 7 e coloca o ponto
+
+ESC[nA      -> Move o cursor n linhas para cima, na mesma coluna
+ESC[nB      -> Move o cursor n linhas para baixo, na mesma coluna
+ESC[nC      -> Move o cursor n colunas para a direita, na mesma linha
+ESC[nD      -> Move o cursor n colunas para a esquerda, na mesma linha
+ESC[nE      -> Move o cursor n linhas para baixo, na coluna 1
+ESC[nF      -> Move o cursor n linhas para cima, na coluna 1
+ESC[nG]     -> Move o cursor para a coluna n da linha atual
+ESC[n;mH    -> Move o cursor para a coluna m da linha n
+
+.......................................................
+COMANDOS DE MOVIMENTAÇÃO DA TELA
+
+ESC[0J -> Apaga até o fim da tela
+ESC[1J -> Apaga até o começo da tela
+ESC[2J -> Apaga a tela toda
+ESC[0K -> Apaga até o fim da linha
+ESC[1K -> Apaga até o começo da linha
+ESC[2K -> Apaga a linha toda
+ESC[nM -> Apaga n linhas para baixo
+ESC[nP -> Apaga n caracteres à direita
+ESC[nX -> Limpa n caracteres à direita
+ESC[n@ -> Insere n espaços em branco
+ESC[nL -> Insere n linhas em brancos
+ESC[nS -> Move a tela n linhas para cima
+ESC[nT -> Move a tela n linhas para baixo  
 
 .......................................................
 
