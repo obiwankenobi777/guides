@@ -1,0 +1,143 @@
+CONFIGURAÇÕES BÁSICAS
+
+--------------------------------------------------------------------------------
+GIT CONFIG
+--------------------------------------------------------------------------------
+git config --global user.name "Obi-Wan Kenobi"
+git config --global user.email "ordemjedi7@gmail.com"
+
+--------------------------------------------------------------------------------
+GIT INIT
+--------------------------------------------------------------------------------
+Inicializando o git
+
+git init
+
+--------------------------------------------------------------------------------
+GIT STATUS
+--------------------------------------------------------------------------------
+Rastrendo os arquivos
+O git status exibe arquivos que estão fora da área de stage, prontos para serem
+adicionados. Isto é, lista os arquivos modificados e o conteúdo da área de
+stage.
+
+git status
+
+--------------------------------------------------------------------------------
+GIT ADD
+--------------------------------------------------------------------------------
+Para que o arquivo seja rastreado
+
+git add arquivo
+ou
+git add .
+
+--------------------------------------------------------------------------------
+GIT COMMIT
+--------------------------------------------------------------------------------
+Gravando o arquivo em um repositório
+
+git commit -m "messagem do commit"
+
+--------------------------------------------------------------------------------
+GIT LOG
+--------------------------------------------------------------------------------
+Verificando alterações realizadas
+Verificando o histórico do seu repositório
+
+git log
+
+#para executar duas linhas do log
+git log -n 2
+
+#para um resumo conciso de uma linha cada log, faz-se:
+# aqui vai todos os logs, mas concisos
+git log --oneline
+
+# aqui vai apenas os dois primiros logs
+git log --oneline -n 2
+
+# para mostrar um resumo dos arquivos alterados, com o número de linhas
+# adicionadas e removidas
+git log --stat
+
+#para mostrarmos um resumo das alterações dos últimos dois commits
+git log -n 2 --oneline --stat
+
+--------------------------------------------------------------------------------
+GIT REMOTE
+--------------------------------------------------------------------------------
+Apontando o projeto para o repositório no github
+
+git remote add origin $url_github
+
+--------------------------------------------------------------------------------
+GIT PUSH
+--------------------------------------------------------------------------------
+Enviando as alterações para o github
+
+git push -u origin master
+
+--------------------------------------------------------------------------------
+GIT CLONE
+--------------------------------------------------------------------------------
+Para obter o código contido no repositório
+
+git clone $url_github_repo
+
+--------------------------------------------------------------------------------
+GIT DIFF
+--------------------------------------------------------------------------------
+Verificando mudanças ainda não rastreadas.
+O git diff compara working directory com a staging area, isto é, mostra as
+mudanças feita nos arquivos, mas que ainda não foram adicionadas ao staging com:
+git add. Mostra o que mudou, mas ainda não será commitado
+
+git diff
+
+Compara as mudanças que você já deu git add, mas ainda não comitou, isto é,
+mostra exatamente o que vai entrar no próximo commit:
+
+git diff --staged == git diff --cached
+
+Git diff é bom para revisar as mudanças antes de git add. Uma fez feita o git
+add, pode-se verificar as mudanças com: git diff --staged(--cached)
+
+Com o código do último commit, pode-se mostrar as alterações dentro e fora da
+stage utilizando o comando
+
+git diff 2222cccc
+
+Podemos usar git diff para vericar as diferenças entre dois commits:
+
+git diff 222cccc..8877887
+
+--------------------------------------------------------------------------------
+GIT RM
+--------------------------------------------------------------------------------
+Removendo arquivos do repositório.
+A remoção do arquivo e adição na stage podem ser realizadas de uma vez só
+através do comando:
+
+git rm nameFile
+
+--------------------------------------------------------------------------------
+GIT MV
+--------------------------------------------------------------------------------
+Renomeando arquivos.
+Para manter o padrã́o de nomenclatura, resolvemos modificar o nome do arquivo
+
+
+--------------------------------------------------------------------------------
+GIT RESTORE
+--------------------------------------------------------------------------------
+Recuperar um arquivo excluido, mas que estava no stage
+
+git restore --staged nameFile
+git restore nameFile
+
+Este comando recria o arquivo exatamente comoe estava no index(stage).
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
