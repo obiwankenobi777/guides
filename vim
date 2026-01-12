@@ -1,6 +1,6 @@
----------------------------------
+------------------------------------------------------------------
 STRINGS
----------------------------------
+------------------------------------------------------------------
 
 CONCATENATION
 
@@ -39,9 +39,9 @@ bar
 echo 'that''s enough'
 that's enough
 
----------------------------------
+------------------------------------------------------------------
 STRINGS FUNCTIONS
----------------------------------
+------------------------------------------------------------------
 
 LENGTH
 
@@ -88,9 +88,9 @@ arch linux
 echo toupper(tolower('Arch Linux'))
 ARCH LINUX
 
----------------------------------
+------------------------------------------------------------------
 LISTS
----------------------------------
+------------------------------------------------------------------
 
 echo ['foo', 3, 'bar']
 echo ['foo', [3, 'bar']]
@@ -163,10 +163,9 @@ call reverse(foo)
 echo foo
 ['b', 'a']
 
-
----------------------------------
+------------------------------------------------------------------
 LOOPS
----------------------------------
+------------------------------------------------------------------
 
 let lst = []
 let sum = 0
@@ -206,10 +205,9 @@ echo len(lst)
 / [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // 10
 
-
----------------------------------
+------------------------------------------------------------------
 DICTIONARIES
----------------------------------
+------------------------------------------------------------------
 
 echo { a: 1, 100: 'foo' }
 let dict = { 0: 'arch', 'name': 'elliot', 'age': 31 }
@@ -222,10 +220,9 @@ echo dict
 // 31
 // { '0': 'arch', 'name': 'elliot': 'age': '31'}
 
-
----------------------------------
+------------------------------------------------------------------
 EVENTS
----------------------------------
+------------------------------------------------------------------
 
 BufRead - quando um arquivo é lido
 BufWrite - quando um buffer é salvo
@@ -236,10 +233,109 @@ VimEnter - quando o vim inicia
 exemplo: 
 autocmd BufWrite *.c echo "Arquivo C salvo"
 
----------------------------------
+------------------------------------------------------------------
+------------------------------------------------------------------
 ==? é operador de comparacao que ignora maiusculas e minusculas, 
 independente da configuracao do usuario
 
 ==# diferencia maiusculas e minuscula independentes da configuracao 
 do usuario
----------------------------------
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+COPIAR, COLAR, DELETAR
+
+dd -> deleta toda a linha atual
+D  -> deleta o restante da linha
+d$ -> deleta do ponto atual do cursor até o final da linha
+d^ -> deleta do cursor ao primeiro caractere não nulo da linha
+d0 -> deleta do cursor ao inicio da linha
+"dfe" -> apaga do cursor até o caractere 'e'
+
+x -> apaga o caractere sob o cursor
+xp -> troca letras de lugar
+ddp -> troca linhas de lugar
+d5x -> apaga os próximos 5 caracteres
+dd -> apaga a linha atual
+5dd -> apaga 5 linhas
+d5G -> apaga até a 5 linha
+dw -> apaga uma palavra
+5dw -> apagar 5 palavras
+dl -> apaga um letra, semelhante a x
+5dl -> apaga 5 letras 
+d0 -> apaga até o início da linha
+d^ -> apaga até o primeiro da linha    
+d$ -> apaga até a final da linha
+dgg -> apaga até o início do arquivo
+dG -> apaga até o final do arquivo
+D -> apaga até o final do arquivo
+d% -> apaga até o próximo (, [, {
+da" -> deleta aspas com conteudo
+diw -> apaga palavra mesmo que não estja posicionada no inicio
+dip -> apaga o paragrafo atual
+d4p -> apaga as quatro palavras anteriores
+dfx -> apagar até o x
+
+yy -> copia linha atual
+Y  -> copia a linha atual
+ye -> copia do cursor ao fim da palavra
+yb -> copia do começo da palavra ao cursor 
+5yy -> copia 6 linhas 
+y/pat -> copia até pat
+yw -> copia uma palavra
+5yw -> copia 5 palavras
+yl -> copia 5 letras
+5yl -> copia 5 letras
+y5l -> copia 5 letras
+y^  -> copia da posição atual até o início da linha, mesmo que: y0 
+y$ -> copia da posição atual até o fim da linha
+ygg -> copia da posição atual até o início do arquivo
+yG -> copia da posição atual até o final do arquivo
+
+p -> cola o que foi copiado ou deletado abaixo
+P -> cola o que foi copiado ou deletado acima
+[p -> cola o que foi copiado ou deletado antes do cursor
+]p -> cola o que foi copiado ou deletado antes do cursor
+
+Trocando a letra 'd' nos comandos acima por 'c' de change, invés
+de deletar será feita uma mudança de conteúdo.
+
+ciw -> modifica uma palavra
+cip -> modifica um paragrafo
+cis -> modifica uma palavra
+C   -> modifica até o final da linha
+
+ORDENANDO
+
+sort u -> ordena e retira linnhas duplicadas
+sort n -> ordena numericamente
+
+i, j sort n -> ordena entre as linha i e j
+
+CONVERTENDO PARA MAIUSCULAS
+
+gUU -> converte a linha toda para maiuscula
+guu -> converte a linha toda para minuscula
+gUiw -> converte a palavra atual para maiuscula
+~   -> altera o case do caractere atual 
+
+USANDO EXPRESSÕES REGULARES EM BUSCAS
+
+/ -> inicia uma busca
+/\%x69 -> localiza a letra 'i'
+/\d -> localiza números
+/[3-8] -> localiza números entre 3 e 8
+
+OBTENDO INFORMAÇÕES DO ARQUIVO
+
+ga -> mostra código do caractere em decimal hexa e octal
+ctrl-g -> mostra o caminho e o nome do arquivo
+g-ctrl-g -> mostra estatísticas detalhadas do arquivo
+
+FILE EXPLORER
+
+:Ve -> abre o file explore verticalmente
+:Sex -> abre o file explore em uma nova janela
+:Tex -> abre o file explore em um nova aba
+
+
